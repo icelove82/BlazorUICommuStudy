@@ -1,10 +1,12 @@
 ﻿@page "/counter"
+@inject ICountService CountService
 
 <PageTitle>Counter</PageTitle>
 
 <h1>Counter</h1>
 
-@*Custom UI Coponent*@
+<p>1. Custom UI Coponent : Parent - Child</p>
+@*Custom UI Coponent : Parent - Child *@
 <MyNotiCount Count="@currentCount" ResetCount="ResetCount"></MyNotiCount>
 
 <p>@resetMsg</p>
@@ -20,11 +22,13 @@
     private void IncrementCount()
     {
         currentCount++;
+        CountService.IncrementCount();
     }
 
     private void ResetCount()
     {
         currentCount = 0;
         resetMsg = "Counter has been reset.";
+        CountService.ResetCount();
     }
 }
