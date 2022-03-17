@@ -10,7 +10,7 @@
     public int Count { get; set; } = 0;
 
     [Parameter]
-    public EventCallback ResetCount { get; set; }
+    public EventCallback<int> ResetCount { get; set; }
 
-    private async Task InvokeResetCount() => await ResetCount.InvokeAsync();
+    private async Task InvokeResetCount() => await ResetCount.InvokeAsync(8888);
 }

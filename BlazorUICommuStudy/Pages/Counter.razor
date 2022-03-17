@@ -5,8 +5,8 @@
 
 <h1>Counter</h1>
 
-<p>1. Custom UI Coponent : Parent - Child</p>
 @*Custom UI Coponent : Parent - Child *@
+<p>1. Custom UI Coponent : Parent - Child</p>
 <MyNotiCount Count="@currentCount" ResetCount="ResetCount"></MyNotiCount>
 
 <p>@resetMsg</p>
@@ -25,10 +25,13 @@
         CountService.IncrementCount();
     }
 
-    private void ResetCount()
+    /* Event call back from Child  */
+    private void ResetCount(int msg)
     {
         currentCount = 0;
         resetMsg = "Counter has been reset.";
         CountService.ResetCount();
+        
+        resetMsg += " Return msg ===> " + msg;
     }
 }
